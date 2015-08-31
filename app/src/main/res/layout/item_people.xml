@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/trap_image_view"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/trap" />
+
+    <TextView
+        android:layout_margin="5dp"
+        android:id="@+id/trapcard_Text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/trap_image_view"
+        android:text="TrapCard"
+        android:textSize="20dp" />
+
+    <TextView
+        android:layout_margin="5dp"
+        android:id="@+id/함정카드_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/trapcard_Text_view"
+        android:layout_toRightOf="@+id/trap_image_view"
+        android:text="함정카드"
+        android:textSize="20dp" />
+
+    <TextView
+        android:layout_margin="5dp"
+        android:id="@+id/유희왕_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/함정카드_text_view"
+        android:layout_toRightOf="@+id/trap_image_view"
+        android:text="유희왕"
+        android:textSize="20dp" />
+</RelativeLayout>
