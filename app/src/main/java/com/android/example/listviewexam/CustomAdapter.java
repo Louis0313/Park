@@ -16,14 +16,12 @@ import java.util.List;
  */
 public class CustomAdapter extends BaseAdapter {
     private List<People> mData;
-    private Context mContext;
+    private LayoutInflater inflater;
 
-
-    public CustomAdapter(Context context, List<People> data){
-        mContext = context;
+    public CustomAdapter(Context context, List<People> data) {
         mData = data;
+        inflater = LayoutInflater.from(context);
     }
-
 
     // 아이템의 갯수
     @Override
@@ -55,28 +53,39 @@ public class CustomAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder viewHolder;
 
-        //1. 레이아웃 구성/
+        // 1. 레이아웃 구성/
 
-        // convertView  처음 로딩 될 때 초기화 과정을 거쳐서 viewHolder 에 저장
-        if (convertView == null){
-            View rootView = LayoutInflater.from(mContext).inflate(R.layout.item_people, parent, false);
-        }else {
+        // convertView 처음 로딩 될 때 초기화 과정을 거쳐서 viewHolder 에 저장
+        if (convertView == null) {
+            convertView = inflater.inflate(R.layout.item_people, parent, false);
+
+            ImageView image = (ImageView) convertView.findViewById(R.id.image_trapper);
+            TextView name = (TextView) convertView.findViewById(R.id.name);
+            TextView phoneNumber = (TextView) convertView.findViewById(R.id.phoneNumber);
+
+            viewHolder = new ViewHolder();
+            viewHolder.image = image;
+            viewHolder.name = name;
+            viewHolder.phone = phoneNumber;
+
+            convertView.setTag(viewHolder);
+
+        } else {
             // convertView 가 다시 로딩 될 때에는 viewHolder에서 꺼내와서 재사용
             // 이점 : 속도가 빠르다
+            viewHolder = (ViewHolder) convertView.getTag();
         }
 
         // 2. 레이아웃에 데이터를 바인딩
-
 
         // 3. 완성된 View를 리턴
         return null;
     }
 
-    static class  ViewHolder {
+    static class ViewHolder {
         ImageView image;
         TextView name;
         TextView phone;
     }
-
 
 }
