@@ -59,27 +59,36 @@ public class CustomAdapter extends BaseAdapter {
         if (convertView == null) {
             convertView = inflater.inflate(R.layout.item_people, parent, false);
 
+            // 각 View 를 소스로 연결
             ImageView image = (ImageView) convertView.findViewById(R.id.image_trapper);
             TextView name = (TextView) convertView.findViewById(R.id.name);
             TextView phoneNumber = (TextView) convertView.findViewById(R.id.phoneNumber);
 
+
+            // ViewHolder 를 생성 후 , 가져온 View 를 dusruf
             viewHolder = new ViewHolder();
             viewHolder.image = image;
             viewHolder.name = name;
             viewHolder.phone = phoneNumber;
 
+            // ViewHoler 를 convertView 의 태그로 저장
             convertView.setTag(viewHolder);
 
         } else {
             // convertView 가 다시 로딩 될 때에는 viewHolder에서 꺼내와서 재사용
             // 이점 : 속도가 빠르다
             viewHolder = (ViewHolder) convertView.getTag();
-        }
+         }
 
         // 2. 레이아웃에 데이터를 바인딩
+//       =   People people = mData.get(position);
+        People people = (People)getItem(position);
+        viewHolder.image.setImageResource(people.getImageResourced());
+        viewHolder.name.setText(people.getName());
+        viewHolder.phone.setText(people.getPhoneNumber());
 
         // 3. 완성된 View를 리턴
-        return null;
+        return convertView;
     }
 
     static class ViewHolder {
