@@ -4,18 +4,15 @@ package com.android.example.listviewexam;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ListView;
-import android.widget.SimpleAdapter;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
 
-    private List<Map<String, String>> mData;
-    private SimpleAdapter mAdapter; // Adapter작성
+    private List<People> mData;
+    private CustomAdapter mAdapter; // Adapter작성
     private ListView mListView;
 
     @Override
@@ -35,24 +32,17 @@ public class MainActivity extends AppCompatActivity {
 
     private void initData() {
         mData = new ArrayList<>();
+        mData.add(new People(R.drawable.trap, "함정카드", "010-1111-1111"));
+        mData.add(new People(R.drawable.dog, "멍멍이", "010-2222-2222"));
 
-        for (int i = 1; i <= 100; i++) {
-            Map<String, String> data = new HashMap<>();
-            data.put("item", "Item " + i);
-            data.put("subitem", "Sub Item " + i);
-            mData.add(data);
+        for(int i = 1; i<= 30; i++){
+            mData.add(new People(R.mipmap.ic_launcher,"아무개" +i, "번호없음"));
+        }
 
         }
-    }
 
     private void initAdapter() {
-        // Adapter 준비
-        mAdapter = new SimpleAdapter(getApplicationContext(), mData,
-                android.R.layout.simple_list_item_2,
-                new String[]{"item", "subitem"},
-                // item의 data를 마인드 할 view의 id 지정
-                new int[]{android.R.id.text1, android.R.id.text2});
-                // subitem의 data를 마인드 할 view의 id 지정
+        mAdapter =new CustomAdapter(getApplicationContext(), mData);
     }
 
     private void initListView() {

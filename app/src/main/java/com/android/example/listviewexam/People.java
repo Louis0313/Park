@@ -2,9 +2,7 @@
 package com.android.example.listviewexam;
 
 /**
- * Created by ws on 2015-08-31.
- *
- * 사람클래스
+ * Created by ws on 2015-08-31. 사람클래스
  */
 public class People {
 
@@ -12,10 +10,10 @@ public class People {
     private String phoneNumber;
     private int imageResourced;
 
-    public People(String name, String phoneNumber, int imageResourced) {
+    public People(int imageResourced, String name, String phoneNumber) {
+        this.imageResourced = imageResourced;
         this.name = name;
         this.phoneNumber = phoneNumber;
-        this.imageResourced = imageResourced;
     }
 
     public String getName() {
