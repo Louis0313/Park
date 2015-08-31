@@ -6,8 +6,8 @@
 
     <ImageView
         android:id="@+id/trap_image_view"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:scaleType="centerCrop"
         android:src="@drawable/trap" />
 
@@ -18,25 +18,16 @@
         android:layout_height="wrap_content"
         android:layout_toRightOf="@+id/trap_image_view"
         android:text="TrapCard"
-        android:textSize="20dp" />
+        android:textSize="25dp" />
 
     <TextView
         android:layout_margin="5dp"
-        android:id="@+id/함정카드_text_view"
+        android:id="@+id/phone_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/trapcard_Text_view"
         android:layout_toRightOf="@+id/trap_image_view"
-        android:text="함정카드"
-        android:textSize="20dp" />
+        android:text="010"
+        android:textSize="25dp" />
 
-    <TextView
-        android:layout_margin="5dp"
-        android:id="@+id/유희왕_text_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/함정카드_text_view"
-        android:layout_toRightOf="@+id/trap_image_view"
-        android:text="유희왕"
-        android:textSize="20dp" />
 </RelativeLayout>
